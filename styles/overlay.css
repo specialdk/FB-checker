@@ -1,0 +1,153 @@
+/**
+ * FB Trust Checker - Overlay Badge Styles
+ * Injected into Facebook Marketplace pages
+ */
+
+/* Main Badge Container */
+#fb-trust-checker-badge {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 99999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  min-width: 200px;
+  max-width: 320px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Risk Level Colors */
+#fb-trust-checker-badge.fb-trust-low {
+  border-left: 4px solid #31a24c;
+}
+
+#fb-trust-checker-badge.fb-trust-medium {
+  border-left: 4px solid #f7b928;
+}
+
+#fb-trust-checker-badge.fb-trust-high {
+  border-left: 4px solid #dc3545;
+  animation: pulse-warning 2s infinite;
+}
+
+@keyframes pulse-warning {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3), 0 0 0 1px rgba(220, 53, 69, 0.1);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(220, 53, 69, 0.5), 0 0 0 2px rgba(220, 53, 69, 0.2);
+  }
+}
+
+/* Badge Header */
+.fb-trust-badge-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: linear-gradient(to bottom, #fafbfc, #f0f2f5);
+  border-bottom: 1px solid #e4e6eb;
+  cursor: pointer;
+}
+
+.fb-trust-badge-emoji {
+  font-size: 20px;
+}
+
+.fb-trust-badge-level {
+  font-weight: 600;
+  color: #1c1e21;
+  flex-grow: 1;
+}
+
+.fb-trust-badge-score {
+  font-size: 12px;
+  color: #65676b;
+  background: #e4e6eb;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.fb-trust-badge-toggle {
+  background: none;
+  border: none;
+  color: #65676b;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 12px;
+  transition: transform 0.2s;
+}
+
+/* Details Section - Hidden by default */
+.fb-trust-badge-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 16px;
+}
+
+/* Expanded State */
+#fb-trust-checker-badge.fb-trust-badge-expanded .fb-trust-badge-details {
+  max-height: 400px;
+  padding: 12px 16px;
+}
+
+#fb-trust-checker-badge.fb-trust-badge-expanded .fb-trust-badge-toggle {
+  transform: rotate(180deg);
+}
+
+/* Detail Sections */
+.fb-trust-badge-section {
+  margin-bottom: 12px;
+}
+
+.fb-trust-badge-section:last-child {
+  margin-bottom: 0;
+}
+
+.fb-trust-badge-section strong {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #65676b;
+  margin-bottom: 6px;
+}
+
+.fb-trust-badge-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fb-trust-badge-section li {
+  padding: 4px 0;
+  font-size: 13px;
+  color: #1c1e21;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.fb-trust-badge-section li:last-child {
+  border-bottom: none;
+}
+
+/* Hover Effect */
+#fb-trust-checker-badge:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  #fb-trust-checker-badge {
+    top: auto;
+    bottom: 20px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+}
