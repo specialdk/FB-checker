@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FB Trust Checker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <h1>🔍 FB Trust Checker</h1>
+      <p class="version">v0.1.0</p>
+    </header>
+    
+    <section class="popup-section">
+      <h2>Status</h2>
+      <div class="status-row">
+        <span>Extension:</span>
+        <span id="status-enabled" class="status-badge status-active">Active</span>
+      </div>
+      <div class="status-row">
+        <span>Auto-scan:</span>
+        <span id="status-autoscan" class="status-badge status-active">On</span>
+      </div>
+    </section>
+    
+    <section class="popup-section">
+      <h2>Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-value" id="stat-scanned">0</span>
+          <span class="stat-label">Listings Scanned</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="stat-flagged">0</span>
+          <span class="stat-label">High Risk Found</span>
+        </div>
+      </div>
+    </section>
+    
+    <section class="popup-section">
+      <h2>Risk Levels</h2>
+      <div class="risk-legend">
+        <div class="risk-item">
+          <span class="risk-dot risk-low"></span>
+          <span>Low Risk (0-3)</span>
+        </div>
+        <div class="risk-item">
+          <span class="risk-dot risk-medium"></span>
+          <span>Caution (4-6)</span>
+        </div>
+        <div class="risk-item">
+          <span class="risk-dot risk-high"></span>
+          <span>High Risk (7+)</span>
+        </div>
+      </div>
+    </section>
+    
+    <section class="popup-section">
+      <h2>Quick Tips</h2>
+      <ul class="tips-list">
+        <li>🔴 Old account + 1 listing = likely hijacked</li>
+        <li>🟡 "Rate me first" = common scam tactic</li>
+        <li>🟡 Won't meet in person = red flag</li>
+        <li>🟢 Multiple listings + ratings = safer</li>
+      </ul>
+    </section>
+    
+    <footer class="popup-footer">
+      <button id="btn-settings" class="btn-secondary">Settings</button>
+      <button id="btn-report" class="btn-primary">Report Issue</button>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
